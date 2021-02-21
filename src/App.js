@@ -1,23 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import MyComponent from './component';
+import { useState } from 'react';
 
 function App() {
+  const [pageInfo, setPageName] = useState('')
+  const [myInfo, setMyInfo] = useState('')
+  const navBtnClicked = (pageName)=> {
+    setPageName(pageName)
+    setMyInfo(pageName === 'home' ? 'My name is Tanvir' : 'I am a Web Developer')
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="App">
+      <button onClick={()=> navBtnClicked('home')}>Home</button>
+      <button onClick={()=> navBtnClicked('contact')}>Contact</button>
+      <MyComponent pageInformation ={pageInfo} myInformation ={myInfo} />
     </div>
   );
 }
