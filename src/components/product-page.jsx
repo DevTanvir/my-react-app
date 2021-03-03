@@ -1,73 +1,44 @@
 import React from 'react'
 import logo from '../logo.svg';
-import ProductDetail from './product-details-page';
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
-const Product = ()=> {
-  const [products, setProducts] = useState([
-    {
-      name: 'Élixir de Courage',
-      price: 30,
-      category: 'Medicine',
-      description: 'Imaginary medicine from a mythical realm which provides courage to the carrier, for a moment'
-    },
-    {
-      name: 'SeracZelg',
-      price: 50,
-      category: 'Weapon',
-      description: 'A simple sword named uniquely, for selling purposes ofcourse!'
-    },
-    {
-      name: 'Flask',
-      price: 10,
-      category: 'Utility',
-      description: 'Self explanotry for the clever people, for everyone else you store your drinking water here'
-    },
-  ])
+
+const Product = ({ productList }) => {
+  const [loading, setLoading] = useState(true);
+  const history = useHistory()
 
   useEffect(() => {
-    // component rendering
-    setState(true)
-  });
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
-  useEffect(() => {
-    // component unmounting
-    return (()=> {
-      setState(false)
-    })
-  });
-
-
-  const [loading, setState] = useState(false)
-  const [info, setInfo] = useState('')
-  const [name, setName] = useState('')
-  const clicked = (desc, name)=> {
-    setInfo(desc)
-    setName(name)
+  const clicked = (id)=> {
+    history.push(`/product-details/${id}`)
   }
+
   return (
     <>
-      
-      { loading && <>
-      <img src={logo} className="App-logo" alt="logo" />
-      <span>Loader</span>
-      </> }
-
-      <h1>Product Page</h1>
       {
-        products.map((item, index)=> {
-          return (
-            <div key={index}>
-              <h3 >{index + 1}. Name: {item.name} | Price: {item.price} Golds</h3>
-              <button onClick={() => clicked(item.description, item.name)}>Details</button>
-            </div>
-          )
-          
-        })
+        loading === true ? (<div className="Logo-style"><img src={logo} className="App-logo" alt="logo" /></div>) : (
+          <div>
+            <h1>Products</h1>
+            {
+              productList.map((item, index) => {
+                return (
+                  <div key={index}>
+                    <div onClick={() => clicked(index)} className="Product">
+                      <h3>{item.name}</h3> 
+                      <h4>| Price: {item.price} Golds |</h4>
+                    </div>
+                  </div>
+                )
+              })
+            }
+          </div>
+        )
       }
-      <ProductDetail productInformation={info} productname={name} />
-      
-      
     </>
   )
 }

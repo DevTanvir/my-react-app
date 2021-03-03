@@ -2,21 +2,67 @@ import logo from './logo.svg';
 import './App.css';
 import Product from './components/product-page';
 import ProductDetail from './components/product-details-page';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 
 function App() {
-  const [state, setState] = useState(1)
-  const clicked = (value) => {
-    setState(value)
-  }  
+
+  const [productList, setProductList] = useState([
+    {
+      name: 'Élixir de Courage',
+      price: 30,
+      category: 'Medicine',
+      description: 'Imaginary medicine from a mythical realm which provides courage to the carrier, for a moment'
+    },
+    {
+      name: 'SeracZelg',
+      price: 50,
+      category: 'Weapon',
+      description: 'A simple sword named uniquely, for selling purposes ofcourse!'
+    },
+    {
+      name: 'Flask',
+      price: 10,
+      category: 'Utility',
+      description: 'Self explanotry for the clever people, for everyone else you store your drinking water here'
+    },
+  ]);
+
   return (
-    <div className="App">
-      <Product />
-      {/* <button onClick={() => clicked(1)}>Product</button>
-      <button onClick={() => clicked(2)}>Product Details</button> */}
-      {/* {state === 1 ? <Product /> : <ProductDetail /> } */}
-      
-    </div>
+    <>
+      {/* <nav>
+        {product !== "" ? (<button onClick={() => handleClick("")}>Go to Homepage</button>) : (<h2>Products</h2>)}
+      </nav>
+
+      { product === "" ? (<Product productList={productList} handleClick={handleClick} />) : (<ProductDetail product={product} />) } */}
+
+      <Router>
+        <nav className="Navbar">
+          <div className="Center-text">
+            <Link to='/'><strong>Homepage</strong></Link>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            <Link to='/product-details'><strong>Details</strong></Link>
+          </div>
+        </nav>
+        <div className="App">
+          <Switch>
+            <Route exact path={"/"}>
+              <Product productList={productList} />             
+            </Route>
+            <Route exact path={"/product-details/:id"}>
+              <ProductDetail productList={productList} />           
+            </Route>
+            <Route exact path={"/404"}>
+              <div className="Center-text"><h1>404 NOT FOUND</h1></div>
+            </Route>
+            <Route path={"*"} render={()=> <Redirect to="/404" />} />
+          </Switch>
+        </div>
+      </Router>
+    </>
   );
 }
 

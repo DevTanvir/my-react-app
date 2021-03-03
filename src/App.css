@@ -1,12 +1,35 @@
 .App {
   margin-top: 16px;
   margin-left: 24px;
+  margin-right: 24px;
   text-align: left;
 }
 
+.Center-text {
+  text-align: center;
+}
+
+.Details {
+  margin-top: 100px;
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+  background-color: cornflowerblue;
+}
+
 .App-logo {
-  height: 10vmin;
+  height: 50vmin;
   pointer-events: none;
+}
+
+.Logo-style {
+  margin-top: 100px;
+  margin-left: 600px;
+}
+
+.Product {
+  border: 1px dotted black;
+  padding: 10px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -24,6 +47,12 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.Navbar {
+  background-color: rgb(160, 208, 216);
+  padding: 8px;
+  height: 30px;
 }
 
 .App-link {
