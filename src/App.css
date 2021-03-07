@@ -11,10 +11,10 @@
 
 .Details {
   margin-top: 100px;
-  border: 1px solid black;
-  padding: 8px;
-  text-align: center;
-  background-color: cornflowerblue;
+  border: 1px dashed black;
+  padding: 10px;
+  text-align: left;
+  /* background-color: rgb(162, 194, 255); */
 }
 
 .App-logo {
@@ -53,6 +53,11 @@
   background-color: rgb(160, 208, 216);
   padding: 8px;
   height: 30px;
+}
+
+.Edit-Button {
+  text-align: left;
+  margin-top: 16px;
 }
 
 .App-link {

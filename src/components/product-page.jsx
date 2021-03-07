@@ -1,17 +1,25 @@
 import React from 'react'
 import logo from '../logo.svg';
+import axios from 'axios'
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 
-const Product = ({ productList }) => {
+const Product = () => {
   const [loading, setLoading] = useState(true);
+  const [userList, setUserList] = useState([])
   const history = useHistory()
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+    axios.get('https://jsonplaceholder.typicode.com/users')
+      .then(response => {
+        console.log(response.data)
+        setUserList(response.data)
+        setLoading(false);
+      })
+      .catch(err => {
+        console.log(err.data)
+      })
   }, []);
 
   const clicked = (id)=> {
@@ -23,14 +31,14 @@ const Product = ({ productList }) => {
       {
         loading === true ? (<div className="Logo-style"><img src={logo} className="App-logo" alt="logo" /></div>) : (
           <div>
-            <h1>Products</h1>
+            <h1>Users</h1>
             {
-              productList.map((item, index) => {
+              userList.map((item, index) => {
                 return (
                   <div key={index}>
-                    <div onClick={() => clicked(index)} className="Product">
+                    <div onClick={() => clicked(item.id)} className="Product">
                       <h3>{item.name}</h3> 
-                      <h4>| Price: {item.price} Golds |</h4>
+                      <h4>| {item.email} | {item.phone}</h4>
                     </div>
                   </div>
                 )
