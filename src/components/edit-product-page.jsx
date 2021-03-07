@@ -31,6 +31,7 @@ const EditProduct = ()=> {
         setLoading(false);
       })
       .catch(err => {
+        setLoading(false)
         console.log(err.data)
       })
   }, []);
@@ -38,13 +39,16 @@ const EditProduct = ()=> {
 
 
   const editUser = () => {
+    setLoading(true);
     axios.patch('https://jsonplaceholder.typicode.com/users', {
       name, phone, email, company, website
     })
     .then(response => {
+      setLoading(false);
       console.log(response.data, 'Successfully edited')
     })
     .catch(err => {
+      setLoading(false);
       console.log(err.data, "something went wrong!")
     })
   }

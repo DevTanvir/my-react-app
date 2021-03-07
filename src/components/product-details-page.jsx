@@ -20,6 +20,7 @@ const ProductDetail = () => {
         setLoading(false);
       })
       .catch(err => {
+        setLoading(false)
         console.log(err.data)
       })
   }, []);
