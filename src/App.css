@@ -3,6 +3,7 @@
   margin-left: 24px;
   margin-right: 24px;
   text-align: left;
+
 }
 
 .Center-text {
@@ -11,10 +12,10 @@
 
 .Details {
   margin-top: 100px;
-  border: 1px dashed black;
   padding: 10px;
-  text-align: left;
-  /* background-color: rgb(162, 194, 255); */
+  text-align: center;
+  display: block;
+  border: rgb(0, 84, 112) solid 2px;
 }
 
 .App-logo {
@@ -28,10 +29,23 @@
 }
 
 .Product {
-  border: 1px dotted black;
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
   padding: 10px;
 }
 
+.Product-Item {
+  background-color: rgba(255, 255, 255, 0.8);
+  opacity: 0.5;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 10px;
+}
+.Product-Item:hover {
+  opacity: 1.0;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -50,14 +64,51 @@
 }
 
 .Navbar {
-  background-color: rgb(160, 208, 216);
+  background-color: rgb(224, 224, 224);
+  font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+  font-size: x-large;
   padding: 8px;
-  height: 30px;
+  height: 40px;
 }
 
 .Edit-Button {
-  text-align: left;
+  text-align: right;
   margin-top: 16px;
+  float: right;
+}
+
+.Float-left {
+  float: left;
+  clear: both;
+  margin-right: 16px;
+}
+
+.Float-right {
+  float: right;
+  clear: both;
+  margin-left: 16px;
+  padding: 10px;
+}
+
+.Category {
+  background-color: rgb(129, 173, 93);
+  padding: 6px;
+  margin-top: 8px;
+  display: inline-block;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.Price {
+  background-color: gold;
+  padding: 8px;
+  display: inline-block;
+  margin-right: 8px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 18px;
 }
 
 .App-link {

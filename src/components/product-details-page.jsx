@@ -3,20 +3,23 @@ import axios from 'axios'
 import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import logo from '../logo.svg';
+import { useDispatch, useSelector } from 'react-redux';
 
 const ProductDetail = () => {
+  const cartStore = useSelector((state)=> state)
+  const dispatch = useDispatch();
   const params = useParams()
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState([])
+  const [product, setProduct] = useState([])
   const history = useHistory()
 
   const id = params.id
 
   useEffect(() => {
-    axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
+    axios.get(`http://54.162.199.74/products/${id}`)
       .then((response) => {
         console.log(response.data)
-        setUser(response.data)
+        setProduct(response.data)
         setLoading(false);
       })
       .catch(err => {
@@ -25,9 +28,17 @@ const ProductDetail = () => {
       })
   }, []);
   
-  const goToEditPage = (id)=> {
-    console.log(id)
-    history.push(`/edit-product/${id}`)
+  const AddtoCart = (item)=> {
+    console.log(item)
+    dispatch({
+      type: 'ADD_TO_CART',
+      payload: item
+    })
+
+    dispatch({
+      type: 'PRODUCT_QUANTITY_PLUS',
+      payload: 1
+    })
   }
 
   return (
@@ -36,15 +47,22 @@ const ProductDetail = () => {
         loading === true ? (<div className="Logo-style"><img src={logo} className="App-logo" alt="logo" /></div>) : 
         (
           <div>
-            <div className="Details">
-              <h2>Info Card</h2>
-              <hr></hr>
-              <h1>{user.name}</h1>
-              <h3>Company: {user.company.name}</h3>
-              <h4>Website: {user.website}</h4>
-              <h4>Address: {user.address.city}, {user.address.street}, {user.address.zipcode}</h4>
+            <div className="Category">Category: {product.category}</div>
+            <div className="Edit-Button">
+              <button onClick={()=> { AddtoCart(product) } } style={{backgroundColor: 'green', color: 'white', fontSize: '18px', borderRadius: '4px'}}>Add to cart</button>
+              {/* <button onClick={()=> { goToEditPage(product.id) } }>Edit</button> */}
             </div>
-            <div className="Edit-Button"><button onClick={()=> { goToEditPage(user.id) } }>Edit</button></div>
+            <div className="Details">
+              <div className="">
+                  <img src={product.image} width="300px" height="400px" style={{marginTop: '10px'}}></img>
+              </div>
+              <hr/>
+              <div className="">
+                <h1>{product.title}</h1>
+                <p>{product.description}</p>
+                <div className="Price">Price: ${product.price}</div>
+              </div>
+            </div>
           </div>
         )
       }
