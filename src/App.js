@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 
 
 function App() {
-  const cartReducer = useSelector((state) => state)
+  const cartReducer = useSelector((state) => state.productQuantity)
 
   return (
     <>
@@ -24,7 +24,7 @@ function App() {
             <Link to='/cart-page'><strong>Cart</strong></Link>
             &nbsp;
             &nbsp;
-            <span><strong>Total Product: 0</strong></span>
+            <span><strong>Total Product: {cartReducer}</strong></span>
           </div>
         </nav>
         <div className="App">

@@ -15,7 +15,7 @@ const CartReducer = (state = INTIAL_STATE, action) =>{
       return { ...state, productQuantity: state.productQuantity + 1}
 
     default:
-      break
+      return state
   }
 };
 
