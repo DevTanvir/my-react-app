@@ -5,11 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(255, 187, 0); /* For browsers that do not support gradients */
-  background-image: linear-gradient(to right, lightblue , lightsalmon);    
+  background-color: rgb(169, 221, 25);
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@font-face {
+  font-family:'vibes';
+  src: local(great-vibes), url(./fonts/great-vibes/GreatVibes-Regular.ttf) format('truetype');
 }

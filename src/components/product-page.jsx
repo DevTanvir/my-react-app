@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../logo.svg';
+import shop from '../img/shopping-bag.jpg';
 import axios from 'axios'
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -34,22 +35,24 @@ const Product = () => {
     <>
       {
         loading === true ? (<div className="Logo-style"><img src={logo} className="App-logo" alt="logo" /></div>) : (
-          <div>
-            <h1 style={{marginLeft: '16px'}}>Products</h1>
-            {
-              productList.map((item, index) => {
-                return (
-                  <div key={index} className="Product">
-                    <div onClick={() => clicked(item.id)} className="Product-Item">
-                      <img src={item.image} width="200px" height="200px"></img>
-                      <h3>{item.title}</h3> 
-                      <h4>Price | ${item.price}</h4>
+          <>
+            <div className="Product-page">
+              <h1 style={{marginLeft: '16px', fontFamily:"vibes", fontSize:"75px"}}>l' atelier</h1>
+              {
+                productList.map((item, index) => {
+                  return (
+                    <div key={index} className="Product">
+                      <div onClick={() => clicked(item.id)} className="Product-Item">
+                        <img src={item.image} width="200px" height="200px"></img>
+                        <h3>{item.title}</h3> 
+                        <h4 style={{color: "green"}}>Price | ${item.price}</h4>
+                      </div>
                     </div>
-                  </div>
-                )
-              })
-            }
-          </div>
+                  )
+                })
+              }
+            </div>
+          </>
         )
       }
     </>
