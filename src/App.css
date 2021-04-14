@@ -83,6 +83,9 @@
 
 
 .Login {
+  position: absolute;
+  top: 128px;
+  left: 600px;
   margin: auto;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.8);

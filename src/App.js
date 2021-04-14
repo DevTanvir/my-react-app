@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Homepage from './components/homepage';
-import Login from './components/login-page';
+import Login from './components/login/login-page';
 import Product from './components/product-page';
 import ProductDetail from './components/product-details-page';
 import CreateProduct from './components/create-product-page'
@@ -41,7 +41,7 @@ function App() {
               <Login />
             </Route>
             <Route exact path={"/dashboard"}>
-              <Product />             
+              <CreateProduct />
             </Route>
             <Route exact path={"/products"}>
               <Product />             
