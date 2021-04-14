@@ -1,7 +1,7 @@
 import react from 'react'
 import { useState } from 'react';
 import axios from 'axios'
-import logo from '../logo.svg';
+import logo from './logo.svg';
 
 
 
@@ -12,6 +12,7 @@ const CreateProduct = ()=> {
   const [price, setPrice] = useState('')
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState('')
+  const [image, setImage] = useState('')
 
 
   const addUser = ()=> {
@@ -49,6 +50,10 @@ const CreateProduct = ()=> {
           <h4>Category</h4>
           <input type="text" value={category} onChange={(e) => {
             setCategory(e.target.value)
+          }}/>
+          <h4>Image Link</h4>
+          <input type="text" value={image} onChange={(e) => {
+            setImage(e.target.value)
           }}/>
         </div>
         <div className="App"><button onClick={addUser}>Submit</button></div>

@@ -38,12 +38,12 @@ const Login = () => {
 
           <div className="container">
             <label><b>Username</b></label>
-            <input type="text" placeholder="Name" value={name} onChange={(e) => {
+            <input className="input" type="text" placeholder="Name" value={name} onChange={(e) => {
               setName(e.target.value)
             }} required/>
 
             <label><b>Password</b></label>
-            <input type="password" placeholder="Password" value={password} required onChange={(e) => {
+            <input className="input" type="password" placeholder="Password" value={password} required onChange={(e) => {
               setPassword(e.target.value)
             }} />
 
@@ -52,7 +52,7 @@ const Login = () => {
                 <input type="checkbox" name="remember" /> Remember me
               </label>
               <span style={{marginRight:"240px"}}></span>
-              <button type="submit">Login</button>
+              <button className="button" type="submit">Login</button>
             </div>
           </div>
 

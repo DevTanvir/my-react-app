@@ -4,7 +4,7 @@ import Homepage from './components/homepage';
 import Login from './components/login/login-page';
 import Product from './components/product-page';
 import ProductDetail from './components/product-details-page';
-import CreateProduct from './components/create-product-page'
+import CreateProduct from './components/dashboard/create-product-page'
 import EditProduct from './components/edit-product-page';
 import Cart from './components/cart-page';
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
@@ -49,9 +49,9 @@ function App() {
             <Route exact path={"/product-details/:id"}>
               <ProductDetail />           
             </Route>
-            <Route exact path={"/create-product"}>
+            {/* <Route exact path={"/create-product"}>
               <CreateProduct />           
-            </Route>
+            </Route> */}
             <Route exact path={"/edit-product/:id"}>
               <EditProduct />           
             </Route>
