@@ -14,7 +14,7 @@ const Product = () => {
   const cartStore = useSelector((state) => state);
   
   useEffect(() => {
-    axios.get('http://54.162.199.74/products')
+    axios.get('https://fakestoreapi.com/products')
     .then(response => {
       console.log(response.data)
       setProductList(response.data)

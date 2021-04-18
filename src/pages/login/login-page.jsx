@@ -1,16 +1,43 @@
 import React from 'react'
 import './style.css';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 
 const Login = () => {
   const [loading, setLoading] = useState(true);
-  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
+  const [notFoundMsg, setMessage] = useState('')
+  const history = useHistory();
+  
   useEffect(() => {
     setLoading(false)
   }, [])
+
+  const loginBtnPressed = ()=> {
+    axios.post('http://localhost:8080/signin', {
+      email: email,
+      password: password,
+    }).then(response => {
+      if (response.data.userInfo) {
+        sessionStorage.setItem('jwtToken', JSON.stringify(response.data.userInfo));
+        history.push('/');
+      }
+      else {
+        setMessage('User Not found')
+      }
+     }).catch((err) => {
+      console.log(err)
+    })
+
+  }
+
+  const crtAccntBtnPressed = () => {
+    history.push('/signup')
+  }
+
 
   return (
     <>
@@ -29,17 +56,17 @@ const Login = () => {
           }} />
         </div>
       </div> */}
-      <div className="modal">
+      <div className="login-modal">
         
-        <form method="post">
+        <form>
           <div className="logncontainer">
             <h1>LOGIN</h1>
           </div>
 
           <div className="container">
-            <label><b>Username</b></label>
-            <input className="input" type="text" placeholder="Name" value={name} onChange={(e) => {
-              setName(e.target.value)
+            <label><b>Email</b></label>
+            <input className="input" type="text" placeholder="Email" value={email} onChange={(e) => {
+              setEmail(e.target.value)
             }} required/>
 
             <label><b>Password</b></label>
@@ -52,13 +79,12 @@ const Login = () => {
                 <input type="checkbox" name="remember" /> Remember me
               </label>
               <span style={{marginRight:"240px"}}></span>
-              <button className="button" type="submit">Login</button>
+              <button className="button" onClick={() => loginBtnPressed()}>Login</button>
             </div>
           </div>
 
-          <div className="container">
-            <button type="button" className="cancelbtn">Cancel</button>
-            <span className="psw">Forgot <a href="#">password?</a></span>
+          <div className="container-create-account">
+            <button type="button" className="crtAccntBtn" onClick={() => crtAccntBtnPressed()}>Create an account</button>
           </div>
         </form>
 

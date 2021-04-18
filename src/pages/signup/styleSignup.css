@@ -8,12 +8,25 @@
   box-sizing: border-box;
 }
 
+.Signup-button {
+  background-color: #00a100;
+  color: white;
+  padding: 14px 20px;
+  margin-left: 180px;
+  margin-top: 16px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 200px;
+}
+
 .button {
   background-color: #4c74af;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
+  border-radius: 50px;
   cursor: pointer;
   width: 200px;
 }
@@ -22,14 +35,6 @@
   opacity: 0.8;
 }
 
-.cancelbtn {
-  color: white;
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
-  border: none;
-  cursor: pointer;  
-}
 
 .logncontainer {
   text-align: center;
@@ -44,6 +49,18 @@ img.avatar {
 
 .container {
   padding: 16px;
+  margin-bottom: 20px;
+}
+
+.Signup-container {
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.container-create-account {
+  display: inline-block;
+  padding: 16px;
+  margin-bottom: 10px;
 }
 
 span.psw {
@@ -52,26 +69,27 @@ span.psw {
 }
 
 
-.modal {
-
+.signup-login-modal {
   left: 0;
   top: 0;
   width: 600px;
   height: 100%;
   overflow: auto;
   margin: auto;
-  margin-top: 60px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   padding-top: 40px;
-  background-color: rgb(255, 244, 224);
-  border-radius: 2%;
+  background-color: rgb(216, 216, 216);
+  border-radius: 12px;
+
 }
 
 /* Modal Content/Box */
-.modal-content {
+.login-modal-content {
   background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  margin: 5% auto 15% auto; 
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%; 
 }
 
 /* The Close Button (x) */
@@ -114,5 +132,8 @@ span.psw {
   }
   .cancelbtn {
      width: 100%;
+  }
+  .login-modal {
+    width: 300px;
   }
 }
