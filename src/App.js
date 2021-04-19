@@ -8,6 +8,8 @@ import ProductDetail from './pages/product-details-page';
 import CreateProduct from './pages/create-product-page'
 import EditProduct from './pages/edit-product-page';
 import Cart from './pages/cart-page';
+import PrivateRoute from './hooks/PrivateRoute'
+import PublicRoute from './hooks/PublicRoute'
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
@@ -21,14 +23,14 @@ function App() {
       <Router>
         <nav>
           <div className="Navbar">
-            <div><h3 style={{ fontFamily:"vibes", fontSize:"36px"}}>Shop Paragon</h3></div>
+            <div><h3 style={{ fontFamily:"vibes", fontSize:"36px"}}>Julivan</h3></div>
             <div style={{display:"block", boxSizing:"border-box"}}>
               <ul style={{display:"flex", alignItems:"center"}}>
-                {/* <li><Link to='/products'><strong>Products</strong></Link></li> */}
+                <li><Link to='/products'><strong>Products</strong></Link></li>
                 <li><Link to='/dashboard'><strong>Dashboard</strong></Link></li>
                 <li><Link to='/login'><strong>Login</strong></Link></li>
                 <li><Link to='/cart-page'><strong>Cart</strong></Link></li>
-                <li><span><strong>Total Product: {cartReducer}</strong></span></li>
+                {/* <li><span>Total Product: {cartReducer}</span></li> */}
               </ul>
             </div>
           </div>
@@ -44,9 +46,10 @@ function App() {
             <Route exact path={"/signup"}>
               <Signup />
             </Route>
-            <Route exact path={"/dashboard"}>
+            <PrivateRoute component={CreateProduct} path="/dashboard" exact />
+            {/* <Route exact path={"/dashboard"}>
               <CreateProduct />
-            </Route>
+            </Route> */}
             <Route exact path={"/products"}>
               <Product />             
             </Route>

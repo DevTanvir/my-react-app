@@ -70,19 +70,21 @@ span.psw {
   margin: auto;
   margin-top: 60px;
   padding-top: 40px;
-  background-color: rgb(255, 244, 224);
+  color: white;
+  background-color: rgb(0, 80, 80);
   border-radius: 2%;
+  background-image: url(https://images.pexels.com/photos/3473569/pexels-photo-3473569.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
 }
 
-/* Modal Content/Box */
+
 .login-modal-content {
   background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  margin: 5% auto 15% auto;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%; 
 }
 
-/* The Close Button (x) */
+
 .close {
   position: absolute;
   right: 25px;

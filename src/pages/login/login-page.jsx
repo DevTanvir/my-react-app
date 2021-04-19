@@ -1,5 +1,6 @@
 import React from 'react'
 import './style.css';
+import bgimg from './logo.svg'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
@@ -23,7 +24,7 @@ const Login = () => {
     }).then(response => {
       if (response.data.userInfo) {
         sessionStorage.setItem('jwtToken', JSON.stringify(response.data.userInfo));
-        history.push('/');
+        history.push('/dashboard');
       }
       else {
         setMessage('User Not found')
