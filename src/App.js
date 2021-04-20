@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Homepage from './pages/homepage';
+import Dashboard from './pages/dashboard/dashboard'
 import Login from './pages/login/login-page';
 import Signup from './pages/signup/signup';
 import Product from './pages/product-page';
@@ -46,19 +47,19 @@ function App() {
             <Route exact path={"/signup"}>
               <Signup />
             </Route>
-            <PrivateRoute component={CreateProduct} path="/dashboard" exact />
-            {/* <Route exact path={"/dashboard"}>
-              <CreateProduct />
-            </Route> */}
+            {/* <PrivateRoute component={Dashboard} path="/dashboard" exact /> */}
+            <Route exact path={"/dashboard"}>
+              <Dashboard />
+            </Route>
             <Route exact path={"/products"}>
               <Product />             
             </Route>
             <Route exact path={"/product-details/:id"}>
               <ProductDetail />           
             </Route>
-            {/* <Route exact path={"/create-product"}>
+            <Route exact path={"/create-product"}>
               <CreateProduct />           
-            </Route> */}
+            </Route>
             <Route exact path={"/edit-product/:id"}>
               <EditProduct />           
             </Route>

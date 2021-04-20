@@ -1,0 +1,175 @@
+
+.Add-Product {
+  background-color: rgb(51, 143, 230);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 14px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 10px;
+  width: 300px;
+  height: 100px;
+  color: white;
+  margin-right: 14px;
+}
+
+.Add-Product:hover {
+  opacity: 0.8;
+  background-color: rgb(26, 78, 126);
+}
+
+.Add-Category {
+  background-color: rgb(51, 143, 230);;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 14px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 10px;
+  width: 300px;
+  height: 100px;
+  color: white;
+  margin-right: 14px;  
+}
+
+.Add-Category:hover {
+  opacity: 0.8;
+  background-color: rgb(26, 78, 126);
+}
+
+.input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.Signup-button {
+  background-color: #00a100;
+  color: white;
+  padding: 14px 20px;
+  margin-left: 180px;
+  margin-top: 16px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 200px;
+}
+
+.button {
+  background-color: #4c74af;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 200px;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+
+.logncontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.Signup-container {
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.container-create-account {
+  display: inline-block;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+
+.dashboard-modal {
+  left: 0;
+  top: 0;
+  width: 600px;
+  height: 100%;
+  overflow: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-top: 40px;
+  background-color: rgb(216, 216, 216);
+  border-radius: 12px;
+  background-image: url(https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+
+}
+
+/* Modal Content/Box */
+.login-modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; 
+  border: 1px solid #888;
+  width: 80%; 
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+  .login-modal {
+    width: 300px;
+  }
+}
