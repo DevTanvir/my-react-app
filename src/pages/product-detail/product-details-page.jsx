@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import logo from '../logo.svg';
+import logo from '../../logo.svg';
 import { useDispatch, useSelector } from 'react-redux';
 
 const ProductDetail = () => {
@@ -30,6 +30,10 @@ const ProductDetail = () => {
   
   const AddtoCart = (item)=> {
     console.log(item)
+    let user = window.sessionStorage.getItem('jwtToken')
+    if (user) {
+      
+    }
     dispatch({
       type: 'ADD_TO_CART',
       payload: item

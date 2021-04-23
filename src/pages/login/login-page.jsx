@@ -8,8 +8,8 @@ import { useHistory } from 'react-router-dom';
 
 const Login = () => {
   const [loading, setLoading] = useState(true);
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
   const [notFoundMsg, setMessage] = useState('')
   const history = useHistory();
   
@@ -18,25 +18,28 @@ const Login = () => {
   }, [])
 
   const loginBtnPressed = ()=> {
+    
     axios.post('http://localhost:8080/signin', {
       email: email,
-      password: password,
+      password: password
+
     }).then(response => {
       if (response.data.userInfo) {
-        sessionStorage.setItem('jwtToken', JSON.stringify(response.data.userInfo));
-        history.push('/dashboard');
+        window.sessionStorage.setItem('jwtToken', JSON.stringify(response.data.userInfo));
+        history.push('/');
       }
       else {
-        setMessage('User Not found')
+        setMessage('User Not found');
+        console.log(notFoundMsg);
       }
      }).catch((err) => {
-      console.log(err)
+      console.log(err);
     })
 
   }
 
   const crtAccntBtnPressed = () => {
-    history.push('/signup')
+    history.push('/signup');
   }
 
 

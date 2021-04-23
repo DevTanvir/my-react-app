@@ -1,6 +1,5 @@
 import React from 'react'
-import logo from '../logo.svg';
-import shop from '../img/shopping-bag.jpg';
+import logo from '../../logo.svg';
 import axios from 'axios'
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';

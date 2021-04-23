@@ -42,7 +42,7 @@ const Dashboard = ()=> {
       price: productValues.price, 
       description: productValues.description, 
       category: {
-        _id: productValues.category
+      _id: 1
       }
     })
     .then(response=> {
@@ -183,7 +183,7 @@ const Dashboard = ()=> {
                     required
                   />
                   <div>
-                    <button className="Signup-button" onClick={(e) => addProduct()}>Add</button>
+                    <button className="Signup-button" onClick={() => addProduct()}>Add</button>
                   </div>
                 </div>
               </form>

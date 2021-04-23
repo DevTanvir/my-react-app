@@ -4,8 +4,8 @@ import Homepage from './pages/homepage';
 import Dashboard from './pages/dashboard/dashboard'
 import Login from './pages/login/login-page';
 import Signup from './pages/signup/signup';
-import Product from './pages/product-page';
-import ProductDetail from './pages/product-details-page';
+import Product from './pages/products/product-page';
+import ProductDetail from './pages/product-detail/product-details-page';
 import CreateProduct from './pages/create-product-page'
 import EditProduct from './pages/edit-product-page';
 import Cart from './pages/cart-page';
@@ -13,12 +13,12 @@ import PrivateRoute from './hooks/PrivateRoute'
 import PublicRoute from './hooks/PublicRoute'
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
 import { useSelector } from 'react-redux';
-
+import { useState } from 'react';
 
 
 function App() {
   const cartReducer = useSelector((state) => state.productQuantity)
-
+  const [value, setValue] = useState(true)
   return (
     <>
       <Router>

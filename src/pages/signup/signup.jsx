@@ -179,7 +179,7 @@ const Signup = () => {
             />
 
             <div>
-              <button className="Signup-button" onClick={(e) => signupBtnPressed()}>Signup</button>
+              <button className="Signup-button" onClick={signupBtnPressed}>Signup</button>
             </div>
           </div>
         </form>
